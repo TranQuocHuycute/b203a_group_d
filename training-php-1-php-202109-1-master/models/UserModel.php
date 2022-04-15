@@ -50,9 +50,10 @@ class UserModel extends BaseModel {
      */
     public function updateUser($input) {
         $sql = 'UPDATE users SET 
-                 name = "' . $input['name'] .'", 
+                 name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
                  password="'. md5($input['password']) .'"
                 WHERE id = ' . $input['id'];
+
         $user = $this->update($sql);
 
         return $user;
@@ -64,11 +65,17 @@ class UserModel extends BaseModel {
      * @return mixed
      */
     public function insertUser($input) {
+<<<<<<< HEAD
 
         $sql = "INSERT INTO `users`(`id`, `name`, `fullname`, `email`, `type`, `password`) VALUES (null,'" . $input['name'] . "','','','',MD5('". $input['password'] ."'))";
         // $sql = "INSERT INTO `app_web1`.`users` (`name`, `password`) VALUES (" .
         //         "'" . $input['name'] . "', '".md5($input['password'])."')";
 
+=======
+        $sql = "INSERT INTO `app_web1`.`users` (`name`, `password`) VALUES (" .
+                "'" . $input['name'] . "', '".md5($input['password'])."')";
+        
+>>>>>>> 9-dongxuanloi/1-login_register
         $user = $this->insert($sql);
 
         return $user;
@@ -91,7 +98,9 @@ class UserModel extends BaseModel {
             //Keep this line to use Sql Injection
             //Don't change
             //Example keyword: abcef%";TRUNCATE banks;##
-            $users = self::$_connection->multi_query($sql);
+            // $users = self::$_connection->multi_query($sql);
+            $users = $this->select($sql);
+            // var_dump($users); die();
         } else {
             $sql = 'SELECT * FROM users';
             $users = $this->select($sql);

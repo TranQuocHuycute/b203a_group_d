@@ -7,7 +7,11 @@ $id = NULL;
 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
+<<<<<<< HEAD
     $user = $userModel->findUserById($id); //Update existing user
+=======
+    $user = $userModel->findUserById($id);//Update existing user
+>>>>>>> 9-dongxuanloi/1-login_register
 }
 
 

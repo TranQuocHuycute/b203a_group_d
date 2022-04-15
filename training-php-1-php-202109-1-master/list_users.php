@@ -10,10 +10,8 @@ if (!empty($_GET['keyword'])) {
     $params['keyword'] = $_GET['keyword'];
 }
 $users = $userModel->getUsers($params);
-<<<<<<< HEAD
-=======
 
->>>>>>> 5-tranquochuy/1-user_nhaptk,nhapsotien
+
 ?>
 <!DOCTYPE html>
 <html>
