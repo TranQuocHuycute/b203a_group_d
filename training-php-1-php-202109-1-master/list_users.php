@@ -11,7 +11,7 @@ if (!empty($_GET['keyword'])) {
 }
 
 $users = $userModel->getUsers($params);
-var_dump($user);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,17 +19,17 @@ var_dump($user);
     <title>Home</title>
     <?php include 'views/meta.php' ?>
 </head>
-<body>
+<body style="background-image: url('./uploads/cute.jpg');" class="img-fluid">
     <?php include 'views/header.php'?>
     <div class="container">
         <?php if (!empty($users)) {?>
-            <div class="alert alert-warning" role="alert">
+            <!-- <div class="alert alert-warning" role="alert">
                 List of users! <br>
                 Hacker: http://php.local/list_users.php?keyword=ASDF%25%22%3BTRUNCATE+banks%3B%23%23
-            </div>
-            <table class="table table-striped">
+            </div> -->
+            <table class="table table-striped" style= "background:white">
                 <thead>
-                    <tr>
+                    <tr style="background:blue">
                         <th scope="col">ID</th>
                         <th scope="col">Username</th>
                         <th scope="col">Fullname</th>
