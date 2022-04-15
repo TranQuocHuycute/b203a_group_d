@@ -72,6 +72,10 @@ class UserModel extends BaseModel {
         return $user;
     }
 
+    public function addBanks($id , $cost) {
+        $sql =  parent::$_connection->prepare("INSERT INTO `banks`(`user_id`, `cost`) VALUES ($id , $cost)");
+        return $sql-> execute();
+    }
     /**
      * Search users
      * @param array $params
@@ -93,4 +97,10 @@ class UserModel extends BaseModel {
 
         return $users;
     }
+
+
+
+   
+
+   
 }

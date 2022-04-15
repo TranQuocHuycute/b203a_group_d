@@ -11,7 +11,7 @@ if (!empty($_GET['keyword'])) {
 }
 
 $users = $userModel->getUsers($params);
-var_dump($user);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,6 +59,9 @@ var_dump($user);
                                 </a>
                                 <a href="delete_user.php?id=<?php echo $user['id'] ?>">
                                     <i class="fa fa-eraser" aria-hidden="true" title="Delete"></i>
+                                </a>
+                                <a href="add_bank.php?id=<?php echo $user['id'] ?>">
+                                    <i class="fa fa-bank" aria-hidden="true" title="Bank"></i>
                                 </a>
                             </td>
                         </tr>
