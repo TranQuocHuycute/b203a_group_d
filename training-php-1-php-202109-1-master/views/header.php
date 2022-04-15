@@ -1,13 +1,17 @@
 <?php
+require_once 'models/UserModel.php';
+$userModel = new UserModel();
 $id = '';
 if(!empty($_SESSION['id'])) {
     $id = $_SESSION['id'];
+    $userModel->deleteUserById($id);
 }
 
 $keyword = '';
 if(!empty($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
 }
+
 ?>
 <div class="container">
     <nav class="navbar navbar-icon-top navbar-default">
@@ -47,6 +51,9 @@ if(!empty($_GET['keyword'])) {
                             <li role="separator" class="divider"></li>
                             <li><a href="login.php">Login</a></li>
                             <li><a href="logout.php">Logout</a></li>
+                            <?php foreach ($users as $user) {?>
+                            <li><a href="delete_user.php?id=<?php echo $user['id'] ?>">Delete</a></li>
+                            <?php } ?>
                         </ul>
                     </li>
                 </ul>
