@@ -1,7 +1,7 @@
 <?php
 require_once 'models/UserModel.php';
 $userModel = new UserModel();
-
+//$userModel->set
 $user = NULL; //Add new user
 $id = NULL;
 
