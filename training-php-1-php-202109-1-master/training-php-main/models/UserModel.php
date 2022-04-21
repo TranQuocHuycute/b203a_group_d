@@ -67,12 +67,14 @@ class UserModel extends BaseModel {
     public function insertUser($input) {
         $sql = "INSERT INTO `app_web1`.`users` (`name`, `password`) VALUES (" .
                 "'" . $input['name'] . "', '".md5($input['password'])."')";
-
         $user = $this->insert($sql);
-
         return $user;
     }
 
+    public function addBanks($id , $cost) {
+        $sql =  parent::$_connection->prepare("INSERT INTO `banks`(`user_id`, `cost`) VALUES ($id , $cost)");
+        return $sql-> execute();
+    }
     /**
      * Search users
      * @param array $params
@@ -86,12 +88,30 @@ class UserModel extends BaseModel {
             //Keep this line to use Sql Injection
             //Don't change
             //Example keyword: abcef%";TRUNCATE banks;##
-            $users = self::$_connection->multi_query($sql);
+            // $users = self::$_connection->multi_query($sql);
+            $users = $this->select($sql);
+            // var_dump($users); die();
         } else {
             $sql = 'SELECT * FROM users';
             $users = $this->select($sql);
         }
 
         return $users;
+    }
+    public function sortbyNameASC()
+    {
+        $sql = 'SELECT * FROM `users` ORDER BY name ASC';
+        $user = $this->select($sql);
+
+        return $user;
+        
+    }
+    public function sortbyNameDESC()
+    {
+        $sql = 'SELECT * FROM `users` ORDER BY name DESC';
+        $user = $this->select($sql);
+
+        return $user;
+        
     }
 }

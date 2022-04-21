@@ -39,6 +39,16 @@ if(!empty($_GET['keyword'])) {
                         >
                     </div>
                     <button type="submit" class="btn btn-default">Search</button>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o"></i>
+                            Sắp xếp <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sortbyNameASC.php">Tên tăng dần</a></li>
+                            <li><a href="sortbyNameDESC.php">Tên giảm dần</a></li>
+                        </ul>
+                    </li>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
