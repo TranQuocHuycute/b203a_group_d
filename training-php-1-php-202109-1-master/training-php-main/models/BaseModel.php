@@ -3,7 +3,7 @@ require_once 'configs/database.php';
 
 abstract class BaseModel {
     // Database connection
-    protected static $_connection = null;
+    protected static $_connection;
 
     public function __construct() {
 
