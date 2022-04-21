@@ -97,4 +97,20 @@ class UserModel extends BaseModel {
 
         return $users;
     }
+    public function sortbyNameASC()
+    {
+        $sql = 'SELECT * FROM `users` ORDER BY name ASC';
+        $user = $this->select($sql);
+
+        return $user;
+        
+    }
+    public function sortbyNameDESC()
+    {
+        $sql = 'SELECT * FROM `users` ORDER BY name DESC';
+        $user = $this->select($sql);
+
+        return $user;
+        
+    }
 }

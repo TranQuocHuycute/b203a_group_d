@@ -10,7 +10,7 @@ if (!empty($_GET['keyword'])) {
     $params['keyword'] = $_GET['keyword'];
 }
 
-$users = $userModel->getUsers($params);
+$users = $userModel->sortbyNameASC();
 //var_dump($user);
 ?>
 <!DOCTYPE html>
