@@ -7,7 +7,15 @@ class UserModel extends BaseModel {
     public function findUserById($id) {
         $sql = 'SELECT * FROM users WHERE id = '.$id;
         $user = $this->select($sql);
+       
+        return $user;
+    }
 
+    public function viewBanks($id) {
+        $sql = "SELECT banks.cost FROM `users` INNER JOIN `banks` on `users`.`id` = `banks`.`user_id`
+        WHERE `users`.`id` = $id";
+        $user = $this->select($sql);
+       
         return $user;
     }
 
