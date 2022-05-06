@@ -12,7 +12,13 @@ class UserModel extends BaseModel
 
         return $user;
     }
-
+     public function viewBanks($id) {
+        $sql = "SELECT banks.cost FROM `users` INNER JOIN `banks` on `users`.`id` = `banks`.`user_id`
+        WHERE `users`.`id` = $id";
+        $user = $this->select($sql);
+       
+        return $user;
+    }
     public function findUser($keyword)
     {
         $sql = 'SELECT * FROM users WHERE user_name LIKE %' . $keyword . '%' . ' OR user_email LIKE %' . $keyword . '%';
